@@ -1,13 +1,19 @@
 import dotenv from 'dotenv';
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
+import { connect } from 'mongoose';
+import { dbConfig } from './config/db.config';
+import { galleriesRoute } from './routes/galleries.routes';
 
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send("It's alive!!!");
+app.use('/api/galleries', galleriesRoute);
+
+connect(dbConfig.url);
+
+app.listen(process.env.PORT, () => {
+  console.log(
+    `server running : http://${process.env.HOST}:${process.env.PORT}`
+  );
 });
-
-app.listen(port);
