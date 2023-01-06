@@ -1,23 +1,15 @@
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-  data() {
-    return {
-      todoData: null,
-    };
-  },
-  methods: {
-    async fetchData() {
-      this.todoData = null;
-      const res = await fetch("http://localhost:8000/api/galleries");
-      this.todoData = await res.json();
-    },
-  },
-  mounted() {
-    this.fetchData();
-  },
-});
+const todoData = ref(null);
+
+async function fetchData() {
+  todoData.value = null;
+  const res = await fetch('http://localhost:8000/api/galleries');
+  todoData.value = await res.json();
+}
+
+fetchData();
 </script>
 
 <template>
