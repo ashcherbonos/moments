@@ -1,10 +1,14 @@
 import { Router } from 'express';
-import { addLike, getList } from '../controllers/galleries.controller';
+import { addLike, getGalleriesList, getLikes } from '../controllers/galleries';
 
 export const galleriesRoute = Router();
 
 galleriesRoute.get('/', (req, res) => {
-  getList(req, res);
+  getGalleriesList(req, res);
+});
+
+galleriesRoute.get('/like', (req, res) => {
+  getLikes(req, res);
 });
 
 galleriesRoute.patch('/like', (req, res) => {
