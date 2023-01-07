@@ -1,9 +1,11 @@
 import { Request, Response } from 'express';
 import { Galleries } from '../../models/galleries.model';
-import { getFakeInfinityGalleriesList } from './getFakeInfinityGalleriesList';
 
 // Retrieve list of galleries starting from 'skip' with ammount of 'limit'.
-export const getGalleriesList = async (req: Request, res: Response) => {
+export const getFakeInfinityGalleriesList = async (
+  req: Request,
+  res: Response
+) => {
   try {
     const defaultSkip = 0;
     const defaultLimit = 10;
@@ -11,14 +13,7 @@ export const getGalleriesList = async (req: Request, res: Response) => {
     const skip = (req.query.skip || defaultSkip) as number;
     const limit = (req.query.limit || defaultLimit) as number;
 
-    const fake = (req.query.fake || false) as boolean;
-
-    if (fake) {
-      getFakeInfinityGalleriesList(req, res);
-      return;
-    }
-
-    const docs = await Galleries.find({}).skip(skip).limit(limit);
+    const docs = await Galleries.find({}).limit(limit);
 
     if (!docs) {
       res.status(404).send({
@@ -26,7 +21,14 @@ export const getGalleriesList = async (req: Request, res: Response) => {
       });
       return;
     }
-    res.send(docs);
+
+    const fakeDocs = docs.map(({ id, images, likes }) => ({
+      id: id + skip.toString(),
+      images,
+      likes,
+    }));
+
+    res.send(fakeDocs);
   } catch (error) {
     let message = 'Some error occurred while retrieving Galleries';
     if (error instanceof Error) {

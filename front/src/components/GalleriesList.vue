@@ -19,7 +19,7 @@ fetchData();
 <template>
   <div v-for="(gallery, index) in listOfGalleries" :key="index">
     <GallerieCarousel :src="gallery.images" />
-    <LikeButton :id="gallery._id" />
+    <LikeButton :id="gallery.id" />
   </div>
 </template>
 
