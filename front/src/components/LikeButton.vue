@@ -1,18 +1,28 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
-import { addLike } from '../queries/galleryQueries';
+import { addLike, getLike } from '../queries/galleryQueries';
 const hartClass = ref('notLike');
 
 const props = defineProps({
-  id: String,
-  amount: Number,
+  id: {
+    type: String,
+    required: true,
+  },
 });
 
-function like() {
+const amount = ref(0);
+
+async function like() {
   hartClass.value = 'like';
-  props.id && addLike(props.id);
+  amount.value = await addLike(props.id);
 }
+
+async function fetchLike() {
+  amount.value = await getLike(props.id);
+}
+
+fetchLike();
 </script>
 
 <template>
