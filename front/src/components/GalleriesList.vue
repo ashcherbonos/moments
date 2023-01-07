@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { fetchGalariesList, type IGalleries } from '../queries/galleryQueries';
 import GallerieCarousel from './GallerieCarousel.vue';
-
-interface IGalleries {
-  titleImage: string;
-  images: [string];
-}
+import LikeButton from './LikeButton.vue';
 
 const pending = ref(false);
 const listOfGalleries = ref([] as IGalleries[]);
 
 async function fetchData() {
   pending.value = true;
-  const res = await fetch('http://localhost:8000/api/galleries');
-  listOfGalleries.value = await res.json();
+  listOfGalleries.value = await fetchGalariesList();
   pending.value = false;
 }
 
@@ -21,11 +17,10 @@ fetchData();
 </script>
 
 <template>
-  <GallerieCarousel
-    v-for="(galleri, index) in listOfGalleries"
-    :key="index"
-    :src="galleri.images"
-  />
+  <div v-for="(gallery, index) in listOfGalleries" :key="index">
+    <GallerieCarousel :src="gallery.images" />
+    <LikeButton :amount="gallery.likes" :id="gallery._id" />
+  </div>
 </template>
 
 <style scoped>
