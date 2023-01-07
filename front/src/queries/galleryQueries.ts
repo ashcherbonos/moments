@@ -1,5 +1,5 @@
 export interface IGalleries {
-  _id: string;
+  id: string;
   images: [string];
   likes: number;
 }
