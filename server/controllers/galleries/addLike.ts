@@ -21,7 +21,7 @@ export const addLike = async (req: Request, res: Response) => {
     }
     doc.likes++;
     await Galleries.findByIdAndUpdate(id, doc);
-    res.send(doc.likes);
+    res.send(doc.likes.toString());
   } catch (error) {
     let message = 'Some error occurred while updating Gallery.';
     if (error instanceof Error) {

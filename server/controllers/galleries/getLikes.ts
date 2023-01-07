@@ -20,8 +20,9 @@ export const getLikes = async (req: Request, res: Response) => {
       return;
     }
 
-    res.send(doc.likes);
+    res.send(doc.likes.toString());
   } catch (error) {
+    console.log(1);
     let message = 'Some error occurred while updating Gallery.';
     if (error instanceof Error) {
       message = error.message || message;
