@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import GalleriesList from './components/GalleriesList.vue';
+import MainHeader from './components/MainHeader.vue';
 </script>
 
 <template>
-  <main>
-    <div class="container">
+  <div class="root-container">
+    <header>
+      <MainHeader />
+    </header>
+    <main>
       <GalleriesList />
-    </div>
-  </main>
+    </main>
+  </div>
 </template>
-
-<style scoped>
-.container {
-  margin: auto;
-  width: 50%;
-}
-</style>

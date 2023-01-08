@@ -9,20 +9,14 @@ defineProps({
 </script>
 
 <template>
-  <carousel :items-to-show="0.9" :wrap-around="true">
-    <slide v-for="(image, index) in src" :key="index">
-      <img :src="image" />
-    </slide>
-    <template #addons>
-      <Pagination />
-    </template>
-  </carousel>
+  <div class="carousel-container">
+    <carousel :items-to-show="1" :wrap-around="true">
+      <slide v-for="(image, index) in src" :key="index">
+        <img :src="image" class="slide-image" />
+      </slide>
+      <template #addons>
+        <Pagination />
+      </template>
+    </carousel>
+  </div>
 </template>
-
-<style scoped>
-img {
-  width: 50vw;
-  height: 66vh;
-  object-fit: cover;
-}
-</style>
