@@ -2,7 +2,14 @@
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
 import { addLike, getLike } from '../queries/galleryQueries';
-const hartClass = ref('notLike');
+
+const likedClass = 'like-label-liked',
+  notLikedClasss = 'like-label-not-liked',
+  likedImg = 'hartLiked.svg',
+  notLikedImg = 'hart.svg';
+
+const labelClass = ref(notLikedClasss);
+const imageSrc = ref(notLikedImg);
 
 const props = defineProps({
   id: {
@@ -14,7 +21,8 @@ const props = defineProps({
 const amount = ref(0);
 
 async function like() {
-  hartClass.value = 'like';
+  labelClass.value = likedClass;
+  imageSrc.value = likedImg;
   amount.value = await addLike(props.id);
 }
 
@@ -26,18 +34,10 @@ fetchLike();
 </script>
 
 <template>
-  <span @click="like" :class="hartClass">
-    {{ amount }}
-    <img src="like.svg" />
-  </span>
+  <div @click="like" class="like-button-container">
+    <span :class="labelClass">
+      {{ amount }}
+    </span>
+    <img :src="imageSrc" class="like-button-image" />
+  </div>
 </template>
-
-<style scoped>
-.like {
-  color: red;
-}
-
-.notLike {
-  color: blue;
-}
-</style>

@@ -1,35 +1,67 @@
-@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
+@layer components {
+  .root-container {
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  .main-header {
+    @apply fixed top-0 left-0 right-0 z-10 bg-white shadow py-2 md:py-5;
+  }
+
+  .main-header-logo-container {
+    @apply max-w-2xl mx-4 md:mx-auto;
+  }
+
+  .main-header-logo {
+    @apply h-9 md:h-12;
+  }
+
+  .main-header-logo-small {
+    @apply h-9;
+  }
+
+  .main-header-placeholder {
+    @apply h-16 md:h-28;
+  }
+
+  .galleries-list-container {
+    @apply max-w-2xl mx-4 md:mx-auto;
+  }
+
+  .galleries-container {
+    @apply my-4;
+  }
+
+  .gallery-header {
+    @apply flex justify-between items-end font-sans font-bold uppercase mb-4;
+  }
+
+  .gallery-title {
+    @apply text-main text-3xl md:text-4xl;
+  }
+
+  .carousel-container {
+  }
+
+  .slide-image {
+    @apply h-full w-full px-1 object-cover;
+  }
+
+  .like-button-container {
+    @apply flex items-end;
+  }
+
+  .like-button-image {
+    @apply h-6 md:h-9;
+  }
+
+  .like-label-not-liked {
+    @apply text-main text-xs align-bottom font-sans;
+  }
+
+  .like-label-liked {
+    @apply text-accent like-label-not-liked;
   }
 }
