@@ -34,10 +34,10 @@ fetchLike();
 
 <style scoped>
 .like {
-    color: red;
+  color: red;
 }
 
 .notLike {
-    color: blue;
+  color: blue;
 }
 </style>

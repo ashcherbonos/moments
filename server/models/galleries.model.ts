@@ -14,6 +14,7 @@ const galleriesSchema = new Schema<IGalleries>({
 galleriesSchema.method('toJSON', function () {
   const { _id, ...object } = this.toObject();
   object.id = _id;
+  object._id = _id;
   return object;
 });
 
