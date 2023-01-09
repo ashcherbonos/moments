@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import GalleriesList from './components/GalleriesList.vue';
-import MainHeader from './components/MainHeader.vue';
+import GalleriesList from './components/Galleries/GalleriesList.vue';
+import MainHeader from './components/Layout/MainHeader.vue';
 </script>
 
 <template>
