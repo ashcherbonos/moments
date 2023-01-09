@@ -19,7 +19,7 @@ watch(
 <template>
   <div class="main-header">
     <div class="main-header-logo-container">
-      <img src="logo.svg" alt="Bunte Moments .de" :class="logoClass" />
+      <img src="@/assets/logo.svg" alt="Bunte Moments .de" :class="logoClass" />
     </div>
   </div>
   <div ref="scrollingRef" class="main-header-placeholder"></div>
