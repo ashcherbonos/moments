@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useElementVisibility } from '@vueuse/core';
 import { ref, watch } from 'vue';
-import { fetchGalariesList, type IGalleries } from '../queries/galleryQueries';
+import {
+  fetchGalariesList,
+  type IGalleries,
+} from '../../queries/galleryQueries';
 import GallerieCarousel from './GallerieCarousel.vue';
 import LikeButton from './LikeButton.vue';
 

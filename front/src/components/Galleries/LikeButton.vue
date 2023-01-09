@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import 'vue3-carousel/dist/carousel.css';
-import { addLike, getLike } from '../queries/galleryQueries';
+import { addLike, getLike } from '../../queries/galleryQueries';
 
 const likedClass = 'like-label-liked',
   notLikedClasss = 'like-label-not-liked',
