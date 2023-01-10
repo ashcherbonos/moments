@@ -1,14 +1,9 @@
 # moments
 
-I chose to build full stack solution.
+This is code challenge solution.
 
-It used your tech stack: Vue3, Express.js, Mongo DB + Mongoose ODM.
-Challenge was that I never work with any of this tech. It takes about 2 working days to complete, including learning time. Well, the real challenge was outdated documentation for almost every tool... or even lack of documentation at all...
-
-I saved my git history, so you can look at style I used to work with git
-(Well, during real work, I don't create a PR every 2 hours. This was more for demonstration purpose...)
-
-![Alt text](readme/git.png?raw=true "git flow")
+Used tech stack: Vue3, Express.js, Mongo DB + Mongoose ODM.
+Challenge was that I never work with any of this tech. It takes about 2 working days to complete, including learning time.
 
 Database was deployed to Atlas, backend to Azure, front to github pages.
 You can look results at:
