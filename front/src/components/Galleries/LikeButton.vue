@@ -34,7 +34,11 @@ fetchLike();
 </script>
 
 <template>
-  <div @click="like" class="like-button-container">
+  <div
+    @click="like"
+    class="like-button-container"
+    :data-testid="'like-label-' + props.id"
+  >
     <span :class="labelClass">
       {{ amount }}
     </span>

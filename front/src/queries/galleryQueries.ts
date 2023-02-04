@@ -5,7 +5,7 @@ export interface IGalleries {
   likes: number;
 }
 
-const ServerHost = 'https://ashcherbonos-moments.azurewebsites.net';
+const ServerHost = 'http://localhost:3000';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const fetchGalariesList = async (skip: number) => {
